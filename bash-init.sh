@@ -61,4 +61,4 @@ function add_config
 
 
 add_config "${HOME}/.vimrc" "ctermfg=" "hi Comment ctermfg=DarkGreen"
-add_config "${HOME}/.bashrc" "LS_COLORS=" 'LS_COLORS=$LS_COLORS:''di=0;35:'' ; export LS_COLORS'
+add_config "${HOME}/.bashrc" "LS_COLORS=" 'LS_COLORS=$LS_COLORS:'"'"'di=0;35:'"'"' ; export LS_COLORS'
