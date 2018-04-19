@@ -64,6 +64,6 @@ add_config "${HOME}/.vimrc" "ctermfg=" "hi Comment ctermfg=DarkGreen"
 add_config "${HOME}/.bashrc" "LS_COLORS=" 'LS_COLORS=$LS_COLORS:'"'"'di=0;35:'"'"' ; export LS_COLORS'
 
 # ORIGINAL export PS1="\[\e[1;33m\w\e[m \$(git branch 2>/dev/null | awk '{if (\$2) printf(\"\\033[0;33m(%s)\\033[m\", \$2);}')\n\$ "
-git_ps1='export PS1="\[\\e[1;33m\w\\e[m \$(git branch 2>/dev/null | awk '"'"'{if (\$2) printf(\\\"\\\\033[0;33m(%%s)\\\\033[m\\\", \$2);}'"'"')\\n\$ "'
+git_ps1='export PS1="\[\\e[1;33m\w\\e[m \$(git branch 2>/dev/null | awk '"'"'{if (\$2) printf(\"\\\\033[0;33m(%%%%s)\\\\033[m\\\", \$2);}'"'"')\\n\$ "'
 add_config "${HOME}/.bash_profile" "git branch 2" "${git_ps1}"
 
