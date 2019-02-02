@@ -67,3 +67,4 @@ add_config "${HOME}/.bashrc" "LS_COLORS=" 'LS_COLORS=$LS_COLORS:'"'"'di=0;35:'"'
 git_ps1='export PS1="\[\\e[1;33m\w\\e[m \$(git branch 2>/dev/null | awk '"'"'{if (\$2) printf(\"\\\\033[0;33m(%%%%s)\\\\033[m\\\", \$2);}'"'"')\\n\$ "'
 add_config "${HOME}/.bash_profile" "git branch 2" "${git_ps1}"
 
+wget -O "${HOME}/.gitconfig" https://raw.githubusercontent.com/hotmit/dotfiles/master/.gitconfig

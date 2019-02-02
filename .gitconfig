@@ -1,0 +1,74 @@
+[gui]
+	encoding = utf-8
+[user]
+	name = Du Dang
+	email = hotmit@gmail.com
+[i18n]
+	filesEncoding = utf-8
+[push]
+	default = current
+[pull]
+	default = current
+
+[alias]
+	i = init
+	st = status
+	cm = commit
+	cmm = commit -m 
+	br = branch
+	co = checkout
+	com = checkout master
+	cod = checkout develop
+	cog = checkout geolocation	
+	cmi = commit -m 'init commit'  
+	aa = add -A
+	af = add --force 
+		
+	rsu = remote set-url 			# git rsu <remote> <new_url>
+	rao = remote add origin 
+	rag = remote add gl
+	rr = remote remove
+	rrb = remote remove bb
+	rro = remote remove origin
+
+	pu = push --tags
+	rh = reset --hard HEAD
+	rhp = reset --hard HEAD^	
+	
+	pom = pull origin master
+	pod = pull origin develop	
+	pog = pull origin geolocation
+	pwm = pull wan master
+	pwd = pull wan develop	
+	pwg = pull wan geolocation
+	pgm = pull gl master
+	pgd = pull gl develop	
+	pgg = pull gl geolocation
+	
+	pp = push
+	ppom = push origin master
+	ppod = push origin develop
+	ppog = push origin geolocation
+	ppwm = push wan master
+	ppwd = push wan develop	
+	ppwg = push wan geolocation
+	ppbm = push bb master
+	ppbd = push bb develop	
+	ppbg = push bb geolocation
+	ppgm = push gl master
+	ppgd = push gl develop	
+	ppgg = push gl geolocation
+	
+	mm = merge master
+	md = merge develop
+	mg = merge geolocation
+	
+	# pretty log, src: https://coderwall.com/p/euwpig/a-better-git-log
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	
+	myn = config user.name "Du Dang"
+	mye = config user.email "hotmit@gmail.com"
+	
+	won = config user.name "Du Dang"
+	woe = config user.email "ddang@mesalabs.com"
+	
