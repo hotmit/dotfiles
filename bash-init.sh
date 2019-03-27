@@ -58,7 +58,7 @@ function add_config
     local key=$2
     local config=$3
 
-    if has_key ; then
+    if has_key "${file}" "${key}" ; then
         print_msg "   append config"
         printf "\n${config}" >> "${file}"
     else
@@ -70,7 +70,7 @@ function add_config
 add_config "${HOME}/.vimrc" "ctermfg=" "hi Comment ctermfg=DarkGreen"
 add_config "${HOME}/.bashrc" "LS_COLORS=" 'LS_COLORS=$LS_COLORS:'"'"'di=0;35:'"'"' ; export LS_COLORS'
 
-if ! has_key ; then
+if ! has_key "${HOME}/.bash_profile" "git branch 2"; then
     wget -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/.bash_profile >> "${HOME}/.bash_profile"
 fi
 
