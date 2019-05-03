@@ -15,60 +15,53 @@
 	st = status
 	cm = commit
 	cmm = commit -m 
+	cmi = commit -m 'init commit'
+
 	br = branch
+
 	co = checkout
 	com = checkout master
 	cod = checkout develop
-	cog = checkout geolocation	
-	cmi = commit -m 'init commit'  
+	cog = checkout geolocation
+	cov = checkout viewpoint-skin
+
 	aa = add -A
 	af = add --force 
 		
-	rsu = remote set-url 			# git rsu <remote> <new_url>
-	rao = remote add origin 
-	rag = remote add gl
+	rv = remote -v
+	rsu = remote set-url
+	rao = remote add origin
 	rr = remote remove
-	rrb = remote remove bb
-	rro = remote remove origin
+	rrn = remote rename
 
 	pu = push --tags
 	rh = reset --hard HEAD
-	rhp = reset --hard HEAD^	
+
+	fo = fetch origin
+	fw = fetch wan
+	fa = fetch --all
 	
 	pom = pull origin master
 	pod = pull origin develop	
 	pog = pull origin geolocation
+	pov = pull origin viewpoint-skin
 	pwm = pull wan master
 	pwd = pull wan develop	
 	pwg = pull wan geolocation
-	pgm = pull gl master
-	pgd = pull gl develop	
-	pgg = pull gl geolocation
+	pwv = pull wan viewpoint-skin
 	
 	pp = push
 	ppom = push origin master
 	ppod = push origin develop
 	ppog = push origin geolocation
+	ppov = push origin viewpoint-skin
 	ppwm = push wan master
 	ppwd = push wan develop	
 	ppwg = push wan geolocation
-	ppbm = push bb master
-	ppbd = push bb develop	
-	ppbg = push bb geolocation
-	ppgm = push gl master
-	ppgd = push gl develop	
-	ppgg = push gl geolocation
-	
-	mm = merge master
-	md = merge develop
-	mg = merge geolocation
+	ppwv = push wan viewpoint-skin
 	
 	# pretty log, src: https://coderwall.com/p/euwpig/a-better-git-log
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	
 	myn = config user.name "Du Dang"
 	mye = config user.email "hotmit@gmail.com"
-	
-	won = config user.name "Du Dang"
-	woe = config user.email "ddang@mesalabs.com"
-	

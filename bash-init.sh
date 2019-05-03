@@ -52,26 +52,16 @@ function has_key
     return 0
 }
 
-function add_config
-{
-    local file=$1
-    local key=$2
-    local config=$3
+if ! has_key "${HOME}/.vimrc" "DarkGreen"; then
+    wget -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/.vimrc >> "${HOME}/.vimrc"
+fi
 
-    if has_key "${file}" "${key}" ; then
-        print_msg "   append config"
-        printf "\n${config}" >> "${file}"
-    else
-        print_msg "Created ${file}"
-        printf "${config}" > "${file}"
-    fi
-}
-
-add_config "${HOME}/.vimrc" "ctermfg=" "hi Comment ctermfg=DarkGreen"
-add_config "${HOME}/.bashrc" "LS_COLORS=" 'LS_COLORS=$LS_COLORS:'"'"'di=0;35:'"'"' ; export LS_COLORS'
-
-if ! has_key "${HOME}/.bash_profile" "git branch 2"; then
+if ! has_key "${HOME}/.bash_profile" "BASHRC_LOADED"; then
     wget -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/.bash_profile >> "${HOME}/.bash_profile"
+fi
+
+if ! has_key "${HOME}/.bashrc" "git branch 2"; then
+    wget -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/.bashrc >> "${HOME}/.bashrc"
 fi
 
 wget -O "${HOME}/.gitconfig" https://raw.githubusercontent.com/hotmit/dotfiles/master/.gitconfig
