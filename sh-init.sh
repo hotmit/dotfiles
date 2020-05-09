@@ -46,7 +46,7 @@ dot_patch(){
     local local_path="${HOME}/${file_name}"
     local remote_path="${GIT_ROOT_URL}/dot-patch/${file_name}"
 
-    print_msg "Patching ${file_name} ..."
+    print_msg "Patching ${file_name}"
     if [ ! -f "${local_path}" ]; then
         touch "${local_path}"
     fi
@@ -58,7 +58,7 @@ dot_patch(){
     wget -q -O - "${remote_path}"  >> "${local_path}"
     printf "\n###dotfile]"   >> "${local_path}"
 
-    if [ "${file_name}" == ".bash_profile" ]; then
+    if [ "${file_name}" == ".bashrc" ]; then
         if [ -f "/proc/1/cgroup" ] && grep -q /docker "/proc/1/cgroup"; then
             sed -i "s/PS1=\"/PS1=\"\\e[1;35m\\xe2\\x9d\\x8b\\u/" "${local_path}"
         fi
@@ -72,6 +72,8 @@ done
 
 dot_replace=".gitconfig"
 for dr in ${dot_replace}; do
-    print_msg "Replacing ${dr} ..."
+    print_msg "Replacing ${dr}"
     wget -q -O "${HOME}/${dr}" "${GIT_ROOT_URL}/dot-replace/${dr}"
 done
+
+source "${HOME}/.bashrc"
