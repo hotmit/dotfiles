@@ -60,7 +60,7 @@ dot_patch(){
 
     if [ "${file_name}" == ".bash_profile" ]; then
         if [ -f "/proc/1/cgroup" ] && grep -q /docker "/proc/1/cgroup"; then
-            sed -i "s/PS1=\"/PS1=\"\e[1;35m\xe2\x9d\x8b\u/" "${local_path}"
+            sed -i "s/PS1=\"/PS1=\"\\e[1;35m\\xe2\\x9d\\x8b\\u/" "${local_path}"
         fi
     fi
 }
