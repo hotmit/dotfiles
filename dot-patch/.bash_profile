@@ -1,3 +1,3 @@
 if [ -z "${BASHRC_LOADED}" ]; then
-    source ~/.bashrc
+    source ${HOME}/.bashrc
 fi
