@@ -13,6 +13,11 @@ wget -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/sh-init.sh | 
 
 # Git Prompt
 ```bash
+export PS1="\e[1;33m\w\e[m \e[0;33m$(__git_ps1 '(%s)')\e[m\n\$ "
+
+__git_ps1($format_str)      # usage: __git_ps1 '+(%s)' => '+(master)'
+
+# older than git v1.9.3
 export PS1="\e[1;33m\w\e[m \$(git branch 2>/dev/null | awk '{if (\$2) printf(\"\\033[0;33m(%s)\\033[m\", \$2);}')\n\$ "
 ```
 
@@ -33,8 +38,8 @@ $ printf '\xE2\x98\xA0'
 ☠
 
 ☸ = 98e2 00b8 = \xE2\x98\xB8
-
-export PS1="\e[1;35m\xe2\x9d\x8b\u\e[m\e[1;32m\w\e[m \$(git branch 2>/dev/null | awk '{if (\$2) printf(\"\\033[0;33m(%s)\\033[m\", \$2);}')\n\$ "
+icon=$(printf "\xE2\x9D\x8B")
+export PS1="\e[1;35m${icon}\u\e[m \e[1;32m\w\e[m\e[0;33m$(__git_ps1 '(%s)')\e[m\n\$ "
 ```
 
 # Requirement

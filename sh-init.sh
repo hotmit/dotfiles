@@ -60,10 +60,12 @@ dot_patch(){
 
     if [ "${file_name}" == ".bashrc" ]; then
         if [ -f "/proc/1/cgroup" ] && grep -q /docker "/proc/1/cgroup"; then
-            sed -i "s/PS1=\"/PS1=\"\\\\e[1;35m\\\\xe2\\\\x9d\\\\x8b\\\\u\\\\e[m /" "${local_path}"
+            replacement='PS1="\\e[1;35m\xe2\x9d\x8b \\u\\e[m '
+            sed -i "s/PS1=\"/${replacement}/" "${local_path}"
         fi
     fi
 }
+
 
 dot_patches=".bash_profile .bashrc .vimrc"
 for dp in ${dot_patches}; do
