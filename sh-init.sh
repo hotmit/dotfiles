@@ -3,8 +3,7 @@
 #   cprintln($colour, $text)
 #       $colour: 0;30-black, 0;34-blue, 0;32-green, 0;36-cyan, 0;31-red, 0;35-purple, 0;33-brown, 0;37-light gray
 #               1;30-dark gray, 1;34-light blue, 1;32-light green, 1;36-light cyan, 1;31-light red, 1;35-light purple, 1;33-yellow, 1;37-white
-cprintln()
-{
+cprintln(){
     local colour=$1
     local text=$2
     local no_newline=$3
@@ -20,22 +19,19 @@ cprintln()
 #   cprintln($colour, $text)
 #       $colour: 0;30-black, 0;34-blue, 0;32-green, 0;36-cyan, 0;31-red, 0;35-purple, 0;33-brown, 0;37-light gray
 #               1;30-dark gray, 1;34-light blue, 1;32-light green, 1;36-light cyan, 1;31-light red, 1;35-light purple, 1;33-yellow, 1;37-white
-cprint()
-{
+cprint(){
     cprintln "$1" "$2" 1
 }
 
 # Print green text on screen
 #   print_msg($text)
-print_msg()
-{
+print_msg(){
     cprintln "1;32" "$1"
 }
 
 # Print red text on screen
 #   print_error($text)
-print_error()
-{
+print_error(){
     cprintln "0;31" "$1"
 }
 
@@ -45,8 +41,7 @@ GIT_ROOT_URL=https://raw.githubusercontent.com/hotmit/dotfiles/master
 # Append/Replace the custom snippet of the dot file
 #   dot_patch($dot_file_name)
 #     eg dot_patch '.bash_profile'
-dot_patch()
-{
+dot_patch(){
     local file_name=$1
     local local_path="${HOME}/${file_name}"
     local remote_path="${GIT_ROOT_URL}/dot-patch/${file_name}"
@@ -71,12 +66,12 @@ dot_patch()
 }
 
 dot_patches=".bash_profile .bashrc .vimrc"
-for dp in ${dot_patches[@]}; do
+for dp in ${dot_patches}; do
     dot_patch "${dp}"
 done
 
 dot_replace=".gitconfig"
-for dr in ${dot_replace[@]}; do
+for dr in ${dot_replace}; do
     print_msg "Replacing ${dr} ..."
     wget -q -O "${HOME}/${dr}" "${GIT_ROOT_URL}/dot-replace/${dr}"
 done
