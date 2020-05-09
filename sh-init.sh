@@ -56,13 +56,18 @@ dot_patch()
         touch "${local_path}"
     fi
 
-    sed -i -E "s/###[dotfile.+###dotfile]//g" "${local_path}"
+    sed -i "/###\[dotfile/,/###dotfile\]/d" "${local_path}"
         # -i - edit in place
-        # -E - extended regex
 
     printf "\n###[dotfile\n"    >> "${local_path}"
-    wget -O - "${remote_path}"  >> "${local_path}"
-    printf "\n###dotfile]\n"   >> "${local_path}"
+    wget -q -O - "${remote_path}"  >> "${local_path}"
+    printf "\n###dotfile]"   >> "${local_path}"
+
+    if [ "${file_name}" == ".bash_profile" ]; then
+        if [ -f "/proc/1/cgroup" ] && grep -q /docker "/proc/1/cgroup"; then
+            sed -i "s/PS1=\"/PS1=\"\e[1;35m\xe2\x9d\x8b\u/" "${local_path}"
+        fi
+    fi
 }
 
 dot_patches=('.bash_profile' '.bashrc' '.vimrc')
@@ -73,5 +78,5 @@ done
 dot_replace=('.gitconfig')
 for dr in ${dot_replace[@]}; do
     print_msg "Replacing ${dr} ..."
-    wget -O "${HOME}/${dr}" "${GIT_ROOT_URL}/dot-replace/${dr}"
+    wget -q -O "${HOME}/${dr}" "${GIT_ROOT_URL}/dot-replace/${dr}"
 done

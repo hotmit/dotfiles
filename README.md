@@ -36,3 +36,9 @@ $ printf '\xE2\x98\xA0'
 
 export PS1="\e[1;35m\xe2\x9d\x8b\u \e[m\e[1;32m\w\e[m \$(git branch 2>/dev/null | awk '{if (\$2) printf(\"\\033[0;33m(%s)\\033[m\", \$2);}')\n\$ "
 ```
+
+# Requirement
+```
+wget
+sed
+```
