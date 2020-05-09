@@ -40,6 +40,8 @@ $ printf '\xE2\x98\xA0'
 ☸ = 98e2 00b8 = \xE2\x98\xB8
 icon=$(printf "\xE2\x9D\x8B")
 export PS1="\e[1;35m${icon}\u\e[m \e[1;32m\w\e[m\e[0;33m$(__git_ps1 '(%s)')\e[m\n\$ "
+
+⌛⏰❌
 ```
 
 # Requirement
