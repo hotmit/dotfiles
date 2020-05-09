@@ -7,7 +7,7 @@
 
 # Init
 ```
-wget -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/sh-init.sh | sh
+wget -q -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/sh-init.sh | sh
 ```
 
 
