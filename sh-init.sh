@@ -70,12 +70,12 @@ dot_patch()
     fi
 }
 
-dot_patches=('.bash_profile' '.bashrc' '.vimrc')
+dot_patches=".bash_profile .bashrc .vimrc"
 for dp in ${dot_patches[@]}; do
     dot_patch "${dp}"
 done
 
-dot_replace=('.gitconfig')
+dot_replace=".gitconfig"
 for dr in ${dot_replace[@]}; do
     print_msg "Replacing ${dr} ..."
     wget -q -O "${HOME}/${dr}" "${GIT_ROOT_URL}/dot-replace/${dr}"

@@ -39,6 +39,7 @@ export PS1="\e[1;35m\xe2\x9d\x8b\u \e[m\e[1;32m\w\e[m \$(git branch 2>/dev/null 
 
 # Requirement
 ```
-wget
-sed
+wget - get content
+sed - replace old content
+grep - search if content exist
 ```
