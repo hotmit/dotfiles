@@ -1,0 +1,51 @@
+[gui]
+	encoding = utf-8
+[user]
+	name = Du Dang
+	email = hotmit@gmail.com
+[i18n]
+	filesEncoding = utf-8
+[push]
+	default = current
+[pull]
+	default = current
+
+[alias]
+	i = init
+	st = status
+	cmm = commit -m
+	cmi = commit -m 'init commit'
+
+	br = branch
+
+	co = checkout
+	com = checkout master
+	cod = checkout develop
+
+	aa = add -A
+	af = add --force 
+		
+	rv = remote -v
+	rsu = remote set-url
+	rao = remote add origin
+	rr = remote remove
+	rrn = remote rename
+
+	pu = push --tags
+	rh = reset --hard HEAD
+
+	fo = fetch origin
+	fa = fetch --all
+	
+	pom = pull origin master
+	pod = pull origin develop	
+
+	pp = push
+	ppom = push origin master
+	ppod = push origin develop
+
+	# pretty log, src: https://coderwall.com/p/euwpig/a-better-git-log
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	
+	myn = config user.name "Du Dang"
+	mye = config user.email "hotmit@gmail.com"
