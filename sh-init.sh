@@ -40,21 +40,6 @@ print_error()
 }
 
 
-#if ! has_key "${HOME}/.vimrc" "DarkGreen"; then
-#    wget -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/.vimrc >> "${HOME}/.vimrc"
-#fi
-#
-#if ! has_key "${HOME}/.bash_profile" "BASHRC_LOADED"; then
-#    wget -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/.bash_profile >> "${HOME}/.bash_profile"
-#fi
-#
-#if ! has_key "${HOME}/.bashrc" "git branch 2"; then
-#    wget -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/.bashrc >> "${HOME}/.bashrc"
-#fi
-#
-#wget -O "${HOME}/.gitconfig" https://raw.githubusercontent.com/hotmit/dotfiles/master/.gitconfig
-
-
 GIT_ROOT_URL=https://raw.githubusercontent.com/hotmit/dotfiles/master
 
 # Append/Replace the custom snippet of the dot file
@@ -80,8 +65,7 @@ dot_patch()
     printf "\n###dotfile]\n"   >> "${local_path}"
 }
 
-# '.bashrc' '.vimrc'
-dot_patches=('.bash_profile')
+dot_patches=('.bash_profile' '.bashrc' '.vimrc')
 for dp in ${dot_patches[@]}; do
     dot_patch "${dp}"
 done
