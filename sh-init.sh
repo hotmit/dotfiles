@@ -38,6 +38,21 @@ print_error(){
 
 GIT_ROOT_URL=https://raw.githubusercontent.com/hotmit/dotfiles/master
 
+patch_vim_rc(){
+    local file_name=".vimrc"
+    local local_path="${HOME}/${file_name}"
+    local remote_path="${GIT_ROOT_URL}/dot-patch/${file_name}"
+
+    if [ ! -f "${local_path}" ]; then
+        wget -q -O - "${remote_path}"  >> "${local_path}"
+    else
+        vimrc=$(cat "${local_path}")
+        if [[ "${vimrc}" != *"hi Comment ctermfg"* ]]; then
+            wget -q -O - "${remote_path}"  >> "${local_path}"
+        fi
+    fi
+}
+
 # Append/Replace the custom snippet of the dot file
 #   dot_patch($dot_file_name)
 #     eg dot_patch '.bash_profile'
@@ -69,7 +84,11 @@ dot_patch(){
 
 dot_patches=".bash_profile .bashrc .vimrc"
 for dp in ${dot_patches}; do
-    dot_patch "${dp}"
+    if [ "${dp}" == ".vimrc" ]; then
+        patch_vim_rc
+    else
+        dot_patch "${dp}"
+    fi
 done
 
 dot_replace=".gitconfig"
