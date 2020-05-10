@@ -14,4 +14,4 @@ git_branch() {
 		fi
 	fi
 }
-export PS1="\[\e[32m\]\w\[\e[m\]\[\e[0;33m\]\$(git_branch)\[\e[m\] \[\e[33m\]\$\[\e[m\]"
+export PS1='\[\e[32m\]\w\[\e[m\]\[\e[0;33m\]$(git_branch)\[\e[m\]'$'\n\[\e[33m\]# \[\e[m\]'

@@ -12,7 +12,13 @@ wget -q -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/sh-init.sh
 
 
 # Git Prompt
+[New line bug](https://stackoverflow.com/questions/21517281/ps1-command-substitution-fails-when-containing-newlines-on-msys-bash)
 ```bash
+Bug where bash can't have \n after $() function,
+    Solution: use single quote:
+        export PS1='\[\e[32m\]\w\[\e[m\]\[\e[0;33m\]$(git_branch)\[\e[m\]'$'\n\[\e[33m\]# \[\e[m\]'
+        $'\n' will convert to new line
+
 export PS1="\e[1;33m\w\e[m \e[0;33m$(__git_ps1 '(%s)')\e[m\n\$ "
 
 __git_ps1($format_str)      # usage: __git_ps1 '+(%s)' => '+(master)'
