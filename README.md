@@ -12,9 +12,9 @@ wget -q -O - https://git.io/JfCjW | sh
 * Only wget (smaller than curl)
 * Only use sh (more compatible)
 
-# Git Prompt
+## Git Prompt
 * [New line bug](https://stackoverflow.com/questions/21517281/ps1-command-substitution-fails-when-containing-newlines-on-msys-bash)
-```bash
+```sh
 Bug where bash can't have \n after $() function,
     Solution: use single quote:
         export PS1='\[\e[32m\]\w\[\e[m\]\[\e[0;33m\]$(git_branch)\[\e[m\]'$'\n\[\e[33m\]# \[\e[m\]'
@@ -27,7 +27,7 @@ Bug where bash can't have \n after $() function,
 ## Unicode Icons
 * [Find Unicode Icons](http://shapecatcher.com/index.html)
 * [Unicode Table](https://unicode-table.com/en/)
-```
+```sh
 $ printf ☠ | hexdump
 0000000 98e2 00a0
 0000003
@@ -44,7 +44,7 @@ export PS1="\e[1;35m${icon}\u\e[m \e[1;32m\w\e[m\e[0;33m$(__git_ps1 '(%s)')\e[m\
 ```
 
 ## Util Requirements
-```
+```sh
 wget - get content
 sed - replace old content
 grep - search if content exist
