@@ -96,3 +96,7 @@ for dr in ${dot_replace}; do
     print_msg "Replacing ${dr}"
     wget -q -O "${HOME}/${dr}" "${GIT_ROOT_URL}/dot-replace/${dr}"
 done
+
+print_msg "Download Vim's Molokai Theme"
+mkdir -p "${HOME}/.vim/colors"
+wget -q -O "${HOME}/.vim/colors/molokai.vim" "${GIT_ROOT_URL}/.vim/colors/molokai.vim"
