@@ -8,6 +8,9 @@
 # Init
 ```
 wget -q -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/sh-init.sh | sh
+
+# git.io shortener (alias of the above)
+wget -q -O - https://git.io/JfCjW | sh
 ```
 
 
