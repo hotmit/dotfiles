@@ -76,6 +76,9 @@ dot_patch(){
             sed -i "s/PS1=\"/${replacement}/" "${local_path}"
         fi
     fi
+
+    # remove leading spaces
+    sed -i -z -E "s/^\n+//g" "${local_path}"
 }
 
 
