@@ -1,42 +1,32 @@
 # dotfiles
 
-## Requirements
-* Only wget (smaller than curl)
-* Only use sh (more compatible)
-
-
-# Init
-```
+## Shell Bootstrap Script
+```sh
 wget -q -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/sh-init.sh | sh
 
 # git.io shortener (alias of the above)
 wget -q -O - https://git.io/JfCjW | sh
 ```
 
+## Requirements
+* Only wget (smaller than curl)
+* Only use sh (more compatible)
 
 # Git Prompt
-[New line bug](https://stackoverflow.com/questions/21517281/ps1-command-substitution-fails-when-containing-newlines-on-msys-bash)
+* [New line bug](https://stackoverflow.com/questions/21517281/ps1-command-substitution-fails-when-containing-newlines-on-msys-bash)
 ```bash
 Bug where bash can't have \n after $() function,
     Solution: use single quote:
         export PS1='\[\e[32m\]\w\[\e[m\]\[\e[0;33m\]$(git_branch)\[\e[m\]'$'\n\[\e[33m\]# \[\e[m\]'
         $'\n' will convert to new line
-
-export PS1="\e[1;33m\w\e[m \e[0;33m$(__git_ps1 '(%s)')\e[m\n\$ "
-
-__git_ps1($format_str)      # usage: __git_ps1 '+(%s)' => '+(master)'
-
-# older than git v1.9.3
-export PS1="\e[1;33m\w\e[m \$(git branch 2>/dev/null | awk '{if (\$2) printf(\"\\033[0;33m(%s)\\033[m\", \$2);}')\n\$ "
 ```
 
-# Color
-[Color](http://bashrcgenerator.com/)
+## Color
+* [Color](http://bashrcgenerator.com/)
 
-
-# Unicode Icons
-[Find Unicode Icons](http://shapecatcher.com/index.html)
-[Unicode Table](https://unicode-table.com/en/)
+## Unicode Icons
+* [Find Unicode Icons](http://shapecatcher.com/index.html)
+* [Unicode Table](https://unicode-table.com/en/)
 ```
 $ printf ☠ | hexdump
 0000000 98e2 00a0
@@ -53,7 +43,7 @@ export PS1="\e[1;35m${icon}\u\e[m \e[1;32m\w\e[m\e[0;33m$(__git_ps1 '(%s)')\e[m\
 ⌛⏰❌
 ```
 
-# Requirement
+## Util Requirements
 ```
 wget - get content
 sed - replace old content

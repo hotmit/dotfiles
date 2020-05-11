@@ -38,40 +38,37 @@ print_error(){
 
 GIT_ROOT_URL=https://raw.githubusercontent.com/hotmit/dotfiles/master
 
-patch_vim_rc(){
-    local file_name=".vimrc"
-    local local_path="${HOME}/${file_name}"
-    local remote_path="${GIT_ROOT_URL}/dot-patch/${file_name}"
-
-    if [ ! -f "${local_path}" ]; then
-        wget -q -O - "${remote_path}"  >> "${local_path}"
-    else
-        vimrc=$(cat "${local_path}")
-        if [[ "${vimrc}" != *"hi Comment ctermfg"* ]]; then
-            wget -q -O - "${remote_path}"  >> "${local_path}"
-        fi
-    fi
-}
-
 # Append/Replace the custom snippet of the dot file
 #   dot_patch($dot_file_name)
 #     eg dot_patch '.bash_profile'
 dot_patch(){
     local file_name=$1
+    local comment_tag=$2
     local local_path="${HOME}/${file_name}"
     local remote_path="${GIT_ROOT_URL}/dot-patch/${file_name}"
+    local header="${comment_tag}\\[dotfile"
+    local footer="${comment_tag}dotfile\\]"
 
     print_msg "Patching ${file_name}"
     if [ ! -f "${local_path}" ]; then
         touch "${local_path}"
     fi
 
-    sed -i "/###\[dotfile/,/###dotfile\]/d" "${local_path}"
-        # -i - edit in place
+    # remove old snippets
+    sed -i "/${header}/,/${footer}/d" "${local_path}"
+    # remove ending spaces
+    sed -i -z -E "s/\n+$//g" "${local_path}"
+        # -i  inline edit file
+        # -z  null data, essentially read the whole file as one line
+        # -E  extended regex to use + quantifier
 
-    printf "\n###[dotfile\n"    >> "${local_path}"
+    # remove the escape character
+    header="${header/\\/}"
+    footer="${footer/\\/}"
+
+    printf "\n\n${header}\n"    >> "${local_path}"
     wget -q -O - "${remote_path}"  >> "${local_path}"
-    printf "\n###dotfile]"   >> "${local_path}"
+    printf "\n${footer}"   >> "${local_path}"
 
     if [ "${file_name}" == ".bashrc" ]; then
         if [ -f "/proc/1/cgroup" ] && grep -q /docker "/proc/1/cgroup"; then
@@ -85,9 +82,9 @@ dot_patch(){
 dot_patches=".bash_profile .bashrc .vimrc"
 for dp in ${dot_patches}; do
     if [ "${dp}" == ".vimrc" ]; then
-        patch_vim_rc
+        dot_patch "${dp}" '"""'
     else
-        dot_patch "${dp}"
+        dot_patch "${dp}" "###"
     fi
 done
 
@@ -96,6 +93,3 @@ for dr in ${dot_replace}; do
     print_msg "Replacing ${dr}"
     wget -q -O "${HOME}/${dr}" "${GIT_ROOT_URL}/dot-replace/${dr}"
 done
-
-# this doesn't work, cuz it affect the subprocess
-#source "${HOME}/.bashrc"
