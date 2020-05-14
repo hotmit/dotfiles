@@ -2,6 +2,14 @@ export BASHRC_LOADED=1
 
 alias ls='ls -h --color=auto'
 alias l='ls -la'
+
+alias dcb='docker-compose build'
+alias dcd='docker-compose down'
+alias dcdvo='docker-compose down --volumes --remove-orphans'
+alias dce='docker-compose exec'
+alias dcu='docker-compose up'
+alias dcub='docker-compose up --build'
+
 export LS_COLORS="${LS_COLORS}:di=1;35"
 
 git_branch() {
