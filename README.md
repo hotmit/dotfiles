@@ -5,6 +5,7 @@
 wget -q -O - https://raw.githubusercontent.com/hotmit/dotfiles/master/sh-init.sh | sh
 
 # git.io shortener (alias of the above)
+sudo yum install wget -y
 wget -q -O - https://git.io/JfCjW | sh
 ```
 
