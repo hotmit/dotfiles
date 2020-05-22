@@ -3,6 +3,7 @@ export BASHRC_LOADED=1
 alias ls='ls -h --color=auto'
 alias l='ls -la'
 
+alias dcc='docker-compose'
 alias dcb='docker-compose build'
 alias dcd='docker-compose down'
 alias dcdvo='docker-compose down --volumes --remove-orphans'
@@ -10,6 +11,9 @@ alias dce='docker-compose exec'
 alias dcr='docker-compose run'
 alias dcu='docker-compose up'
 alias dcub='docker-compose up --build'
+alias dct='docker-compose restart'
+alias dcsp='docker-compose stop'
+alias dcst='docker-compose start'
 
 export LS_COLORS="${LS_COLORS}:di=1;35"
 
