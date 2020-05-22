@@ -7,6 +7,7 @@ alias dcb='docker-compose build'
 alias dcd='docker-compose down'
 alias dcdvo='docker-compose down --volumes --remove-orphans'
 alias dce='docker-compose exec'
+alias dcr='docker-compose run'
 alias dcu='docker-compose up'
 alias dcub='docker-compose up --build'
 

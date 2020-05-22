@@ -82,7 +82,7 @@ dot_patch(){
 }
 
 
-dot_patches=".bash_profile .bashrc .vimrc"
+dot_patches=".bash_profile .bashrc .profile .vimrc"
 for dp in ${dot_patches}; do
     if [ "${dp}" == ".vimrc" ]; then
         dot_patch "${dp}" '"""'

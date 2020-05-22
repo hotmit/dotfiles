@@ -1,3 +1,4 @@
+export BASH_PROFILE_LOADED=1
 if [ -z "${BASHRC_LOADED}" ]; then
-    source ${HOME}/.bashrc
+    . ${HOME}/.bashrc
 fi
