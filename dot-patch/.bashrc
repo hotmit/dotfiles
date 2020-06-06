@@ -21,7 +21,7 @@ git_branch() {
     branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
     if [ -n "${branch}" ]; then
         if [ -n "$(git diff --shortstat)" ]; then
-            printf "(☕ ${branch})"
+            printf "(☕  ${branch})"
         else
             printf "(${branch})"
         fi
