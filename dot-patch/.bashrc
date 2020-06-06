@@ -18,10 +18,10 @@ alias dcst='docker-compose start'
 export LS_COLORS="${LS_COLORS}:di=1;35"
 
 git_branch() {
-    local branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+    branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
     if [ -n "${branch}" ]; then
         if [ -n "$(git diff --shortstat)" ]; then
-            printf "(☕${branch})"
+            printf "(☕ ${branch})"
         else
             printf "(${branch})"
         fi

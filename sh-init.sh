@@ -1,14 +1,15 @@
 #!/bin/sh
+
 # Print coloured Text
 #   cprintln($colour, $text)
 #       $colour: 0;30-black, 0;34-blue, 0;32-green, 0;36-cyan, 0;31-red, 0;35-purple, 0;33-brown, 0;37-light gray
 #               1;30-dark gray, 1;34-light blue, 1;32-light green, 1;36-light cyan, 1;31-light red, 1;35-light purple, 1;33-yellow, 1;37-white
 cprintln(){
-    local colour=$1
-    local text=$2
-    local no_newline=$3
+    colour=$1
+    text=$2
+    no_newline=$3
 
-    printf "\e[${colour}m${text}\e[m"
+    printf "\e[%sm%s\e[m" "${colour}" "${text}"
 
     if [ -z "${no_newline}" ]; then
         printf "\n"
@@ -42,12 +43,12 @@ GIT_ROOT_URL=https://raw.githubusercontent.com/hotmit/dotfiles/master
 #   dot_patch($dot_file_name)
 #     eg dot_patch '.bash_profile'
 dot_patch(){
-    local file_name=$1
-    local comment_tag=$2
-    local local_path="${HOME}/${file_name}"
-    local remote_path="${GIT_ROOT_URL}/dot-patch/${file_name}"
-    local header="${comment_tag}\\[dotfile"
-    local footer="${comment_tag}dotfile\\]"
+    file_name=$1
+    comment_tag=$2
+    local_path="${HOME}/${file_name}"
+    remote_path="${GIT_ROOT_URL}/dot-patch/${file_name}"
+    header="${comment_tag}\\[dotfile"
+    footer="${comment_tag}dotfile\\]"
 
     print_msg "Patching ${file_name}"
     if [ ! -f "${local_path}" ]; then
@@ -63,14 +64,14 @@ dot_patch(){
         # -E  extended regex to use + quantifier
 
     # remove the escape character
-    header="${header/\\/}"
-    footer="${footer/\\/}"
+    header=$(echo "${header}" | sed "s/\\//")
+    footer=$(echo "${footer}" | sed "s/\\//")
 
-    printf "\n\n${header}\n"    >> "${local_path}"
-    wget -q -O - "${remote_path}"  >> "${local_path}"
-    printf "\n${footer}"   >> "${local_path}"
+    printf "\n\n%s\n" "${header}" >> "${local_path}"
+    wget -q -O - "${remote_path}" >> "${local_path}"
+    printf "\n%s" "${footer}" >> "${local_path}"
 
-    if [ "${file_name}" == ".bashrc" ]; then
+    if [ "${file_name}" = ".bashrc" ]; then
         if [ -f "/proc/1/cgroup" ] && grep -q /docker "/proc/1/cgroup"; then
             replacement='PS1="\\e[1;35m❋ \\u\\e[m '
             sed -i "s/PS1=\"/${replacement}/" "${local_path}"
@@ -84,7 +85,7 @@ dot_patch(){
 
 dot_patches=".bash_profile .bashrc .profile .vimrc"
 for dp in ${dot_patches}; do
-    if [ "${dp}" == ".vimrc" ]; then
+    if [ "${dp}" = ".vimrc" ]; then
         dot_patch "${dp}" '"""'
     else
         dot_patch "${dp}" "###"
