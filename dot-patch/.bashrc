@@ -15,6 +15,11 @@ alias dct='docker-compose restart'
 alias dcsp='docker-compose stop'
 alias dcst='docker-compose start'
 
+alias df='df -h'
+alias free='free -h'
+
+alias v='nvim'
+
 export LS_COLORS="${LS_COLORS}:di=1;35"
 
 git_branch() {
