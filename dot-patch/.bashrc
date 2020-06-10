@@ -18,6 +18,11 @@ alias dcst='docker-compose start'
 alias df='df -h'
 alias free='free -h'
 
+alias an='ansible'
+alias and='ansible-doc'
+alias ans='ansible-playbook'
+alias ang='ansible-galaxy'
+
 alias v='nvim'
 
 export LS_COLORS="${LS_COLORS}:di=1;35"
