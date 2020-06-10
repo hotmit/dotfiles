@@ -64,8 +64,8 @@ dot_patch(){
         # -E  extended regex to use + quantifier
 
     # remove the escape character
-    header=$(echo "${header}" | sed "s/\\//")
-    footer=$(echo "${footer}" | sed "s/\\//")
+    header=$(echo "${header}" | sed 's/\\//')
+    footer=$(echo "${footer}" | sed 's/\\//')
 
     printf "\n\n%s\n" "${header}" >> "${local_path}"
     wget -q -O - "${remote_path}" >> "${local_path}"
