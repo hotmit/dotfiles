@@ -20,7 +20,7 @@ alias free='free -h'
 
 alias an='ansible'
 alias and='ansible-doc'
-alias ans='ansible-playbook'
+alias anp='ansible-playbook'
 alias ang='ansible-galaxy'
 
 alias v='nvim'
