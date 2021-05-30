@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-mkdir -p ~/.config/nvim
+mkdir -p ~/.config/nvim/plugin
+mkdir -p ~/.config/nvim/after/plugin
+mkdir -p ~/.config/nvim/lua
+
 mkdir -p ~/.config/i3
 
-ln -s ./neovim ~/.config/nvim
-ln -s ./i3 ~/.config/i3
+for f in `find ./neovim -regex ".*\.vim$\|.*\.lua$"`; do
+    rm -rf ~/.config/nvim/$f
+    ln -s ~/code/dotfiles/dev-env/neovim/$f ~/.config/nvim/$f
+done
 
-
-#for f in `find . -regex ".*\.vim$\|.*\.lua$"`; do
-#    rm -rf ~/.config/nvim/$f
-#    ln -s ~/code/dotfiles/dev-env/$f ~/.config/nvim/$f
-#done
+for f in `find ./i3 -regex ".*\.vim$\|.*\.lua$"`; do
+    rm -rf ~/.config/i3/$f
+    ln -s ~/code/dotfiles/dev-env/i3/$f ~/.config/i3/$f
+done
