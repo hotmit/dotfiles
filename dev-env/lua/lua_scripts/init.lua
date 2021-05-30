@@ -1,8 +1,6 @@
-require("theprimeagen.telescope")
-require("theprimeagen.git-worktree")
-require("theprimeagen.harpoon")
-require("theprimeagen.lsp")
-require("theprimeagen.statusline")
+require("lua_scripts.telescope")
+require("lua_scripts.git-worktree")
+require("lua_scripts.statusline")
 
 P = function(v)
   print(vim.inspect(v))

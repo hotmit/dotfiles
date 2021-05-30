@@ -15,14 +15,14 @@ set wildignore+=**/.git/*
 call plug#begin('~/.vim/plugged')
 
 " Yes, I am a sneaky snek now
-Plug 'ambv/black'
+Plug 'ambv/black'           " python formatter
 
 " Plebvim lsp Plugins
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+"Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'       " autocomplete
 " Plug 'nvim-lua/completion-nvim'
-Plug 'glepnir/lspsaga.nvim'
-Plug 'simrat39/symbols-outline.nvim'
+"Plug 'glepnir/lspsaga.nvim'
+"Plug 'simrat39/symbols-outline.nvim'
 " Plug 'tjdevries/nlua.nvim'
 " Plug 'tjdevries/lsp_extensions.nvim'
 
@@ -31,22 +31,18 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
 " Debugger Plugins
-Plug 'puremourning/vimspector'
-Plug 'szw/vim-maximizer'
+"Plug 'puremourning/vimspector'
+"Plug 'szw/vim-maximizer'
 
-" THANKS BFREDL
-Plug '/home/mpaulson/personal/contextprint.nvim'
-
-Plug 'rust-lang/rust.vim'
-Plug 'tweekmonster/gofmt.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-Plug 'vim-utils/vim-man'
+"Plug 'rust-lang/rust.vim'
+"Plug 'tweekmonster/gofmt.vim'
+Plug 'tpope/vim-fugitive'       " git
+Plug 'junegunn/gv.vim'          " commit browser
+Plug 'vim-utils/vim-man'        " man page
 Plug 'mbbill/undotree'
-Plug 'tpope/vim-dispatch'
-Plug 'theprimeagen/vim-be-good'
+Plug 'tpope/vim-dispatch'       " async execute (eg. run unit test)
 Plug 'gruvbox-community/gruvbox'
-Plug 'tpope/vim-projectionist'
+"Plug 'tpope/vim-projectionist'
 
 " telescope requirements...
 Plug 'nvim-lua/popup.nvim'
@@ -54,27 +50,19 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-Plug 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'   " eg. colorscheme molokai
 Plug 'chriskempson/base16-vim'
 
-" HARPOON!!
-Plug '/home/mpaulson/personal/rfc-reader'
-Plug 'mhinz/vim-rfc'
+"Plug 'mhinz/vim-rfc'
 
 " prettier
 Plug 'sbdchd/neoformat'
 
-" should I try another status bar???
-"  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-" Plug 'hoob3rt/lualine.nvim'
-
 call plug#end()
 
 " Adding local modules
-
 " let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
 
-" lua require("theprimeagen")
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 let g:vim_be_good_log_file = 1
@@ -87,7 +75,8 @@ endif
 let loaded_matchparen = 1
 let mapleader = " "
 
-" nnoremap <silent> <C-f> :lua require("harpoon.term").sendCommand(1, "tmux2\n"); require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <Tab> <Esc>
+
 nnoremap <leader>ghw :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>bs /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
 nnoremap <leader>u :UndotreeShow<CR>
@@ -142,8 +131,8 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
 
-augroup MI_GROUP
-    autocmd!
-    autocmd BufWritePre * %s/\s\+$//e
-    autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
-augroup END
+"augroup MI_GROUP
+""    autocmd!
+""    autocmd BufWritePre * %s/\s\+$//e
+""    autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
+"augroup END

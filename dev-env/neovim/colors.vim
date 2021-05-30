@@ -11,7 +11,6 @@ fun! ColorMyPencils()
     if has('nvim')
         call luaeval('vim.cmd("colorscheme " .. _A[1])', [g:theprimeagen_colorscheme])
     else
-        " TODO: What the way to use g:theprimeagen_colorscheme
         colorscheme gruvbox
     endif
 
@@ -19,8 +18,6 @@ fun! ColorMyPencils()
     hi SignColumn guibg=none
     hi CursorLineNR guibg=None
     highlight Normal guibg=none
-    " highlight LineNr guifg=#ff8659
-    " highlight LineNr guifg=#aed75f
     highlight LineNr guifg=#5eacd3
     highlight netrwDir guifg=#5eacd3
     highlight qfFileName guifg=#aed75f
@@ -30,4 +27,4 @@ call ColorMyPencils()
 
 " Vim with me
 nnoremap <leader>vwm :call ColorMyPencils()<CR>
-nnoremap <leader>vwb :let g:theprimeagen_colorscheme =
+"nnoremap <leader>vwb :let g:theprimeagen_colorscheme =
