@@ -3,6 +3,7 @@
 mkdir -p ~/.config/nvim/plugin
 mkdir -p ~/.config/nvim/after/plugin
 mkdir -p ~/.config/nvim/lua
+mkdir -p ~/.config/rofi
 
 mkdir -p ~/.config/i3
 
@@ -15,3 +16,5 @@ for f in `find ./i3 -regex ".*\.vim$\|.*\.lua$"`; do
     rm -rf ~/.config/i3/$f
     ln -s ~/code/dotfiles/dev-env/i3/$f ~/.config/i3/$f
 done
+
+ln -s ~/code/dotfiles/dev-env/rofi/config.rasi ~/.config/rofi/config.rasi
