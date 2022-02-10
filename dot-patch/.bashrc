@@ -2,6 +2,9 @@ export BASHRC_LOADED=1
 
 alias ls='ls -h --color=auto'
 alias l='ls -la'
+alias ll='ls -alF'
+alias lt='ls --human-readable --size -1 -S --classify'
+alias ct='find . -type f | wc -l'
 
 alias dcc='docker-compose'
 alias dcb='docker-compose build'

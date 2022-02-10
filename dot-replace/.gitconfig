@@ -20,11 +20,12 @@
 
 	co = checkout
 	com = checkout master
+	coma = checkout main
 	cod = checkout develop
 
 	aa = add -A
-	af = add --force 
-		
+	af = add --force
+
 	rv = remote -v
 	rsu = remote set-url
 	rao = remote add origin
@@ -36,16 +37,18 @@
 
 	fo = fetch origin
 	fa = fetch --all
-	
+
 	pom = pull origin master
-	pod = pull origin develop	
+	poma = pull origin main
+	pod = pull origin develop
 
 	pp = push
 	ppom = push origin master
+	ppoma = push origin main
 	ppod = push origin develop
 
 	# pretty log, src: https://coderwall.com/p/euwpig/a-better-git-log
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	
+
 	myn = config user.name "Du Dang"
 	mye = config user.email "hotmit@gmail.com"
