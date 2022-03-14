@@ -14,12 +14,11 @@ set wildignore+=**/.git/*
 
 call plug#begin('~/.vim/plugged')
 
-" Yes, I am a sneaky snek now
 Plug 'ambv/black'           " python formatter
 
 " Plebvim lsp Plugins
 "Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'       " autocomplete
+"Plug 'hrsh7th/nvim-compe', {'tag': 'v2.0.0'}       " autocomplete
 " Plug 'nvim-lua/completion-nvim'
 "Plug 'glepnir/lspsaga.nvim'
 "Plug 'simrat39/symbols-outline.nvim'
@@ -27,8 +26,8 @@ Plug 'hrsh7th/nvim-compe'       " autocomplete
 " Plug 'tjdevries/lsp_extensions.nvim'
 
 " Neovim Tree shitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'commit': '3c07232'}
+"Plug 'nvim-treesitter/playground'
 
 " Debugger Plugins
 "Plug 'puremourning/vimspector'
@@ -47,8 +46,8 @@ Plug 'gruvbox-community/gruvbox'
 " telescope requirements...
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 Plug 'flazz/vim-colorschemes'   " eg. colorscheme molokai
 Plug 'chriskempson/base16-vim'
@@ -63,7 +62,7 @@ call plug#end()
 " Adding local modules
 " let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
 
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+"lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 let g:vim_be_good_log_file = 1
 let g:vim_apm_log = 1
