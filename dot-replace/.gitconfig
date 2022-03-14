@@ -9,19 +9,24 @@
 	default = current
 [pull]
 	default = current
+	# --ff-only
+	ff = only
 
 [alias]
 	i = init
 	st = status
+	ac = commit -am
 	cmm = commit -m
 	cmi = commit -m 'init commit'
 
 	br = branch
 
+    # set all m - command default to main, and switch ma command to mm
 	co = checkout
-	com = checkout master
-	coma = checkout main
+	com = checkout main
+	comm = checkout master
 	cod = checkout develop
+	cos = checkout staging
 
 	aa = add -A
 	af = add --force
@@ -38,14 +43,17 @@
 	fo = fetch origin
 	fa = fetch --all
 
-	pom = pull origin master
-	poma = pull origin main
+	pom = pull origin main
+	pomm = pull origin master
 	pod = pull origin develop
+	pos = pull origin staging
 
 	pp = push
-	ppom = push origin master
-	ppoma = push origin main
+	ppo = push origin
+	ppom = push origin main
+	ppomm = push origin master
 	ppod = push origin develop
+	ppos = push origin staging
 
 	# pretty log, src: https://coderwall.com/p/euwpig/a-better-git-log
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
