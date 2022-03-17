@@ -1,3 +1,4 @@
+# git config --list
 [gui]
 	encoding = utf-8
 [user]
@@ -13,42 +14,41 @@
 	ff = only
 
 [alias]
-	i = init
-	st = status
-	ac = commit -am
+	i   = init
+	st  = status
+	ac  = commit -am
 	cmm = commit -m
-	cmi = commit -m 'init commit'
+	cmi = commit -m "init commit"
+	br  = branch
+	rh  = reset --hard HEAD
 
-	br = branch
+	rv  = remote -v
+	rsu = remote set-url
+	rao = remote add origin
+	rr  = remote remove
+	rrn = remote rename
+
+	fo  = fetch origin
+	fa  = fetch --all
+
+    aa  = add -A
+	af  = add --force
 
     # set all m - command default to main, and switch ma command to mm
-	co = checkout
+	co  = checkout
 	com = checkout main
 	comm = checkout master
 	cod = checkout develop
 	cos = checkout staging
 
-	aa = add -A
-	af = add --force
-
-	rv = remote -v
-	rsu = remote set-url
-	rao = remote add origin
-	rr = remote remove
-	rrn = remote rename
-
-	pu = push --tags
-	rh = reset --hard HEAD
-
-	fo = fetch origin
-	fa = fetch --all
-
+    po  = pull origin
 	pom = pull origin main
 	pomm = pull origin master
 	pod = pull origin develop
 	pos = pull origin staging
 
-	pp = push
+    ppt = push --tags
+	pp  = push
 	ppo = push origin
 	ppom = push origin main
 	ppomm = push origin master
