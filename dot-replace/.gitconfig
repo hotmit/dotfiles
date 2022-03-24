@@ -1,4 +1,8 @@
 # git config --list
+[init]
+    defaultBranch = main
+    # git config --global init.defaultBranch main
+
 [gui]
 	encoding = utf-8
 [user]
