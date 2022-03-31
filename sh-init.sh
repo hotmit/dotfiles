@@ -45,6 +45,7 @@ GIT_ROOT_URL=https://raw.githubusercontent.com/hotmit/dotfiles/master
 dot_patch(){
     file_name=$1
     comment_tag=$2
+
     local_path="${HOME}/${file_name}"
     remote_path="${GIT_ROOT_URL}/dot-patch/${file_name}"
     header="${comment_tag}\\[dotfile"
@@ -97,3 +98,9 @@ for dr in ${dot_replace}; do
     print_msg "Replacing ${dr}"
     wget -q -O "${HOME}/${dr}" "${GIT_ROOT_URL}/dot-replace/${dr}"
 done
+
+# decide between "docker-compose" vs "docker compose"
+if [ -z "$(command -v docker-compose)" ]; then
+    # use "compose V2"
+    sed -i "s/docker-compose/docker compose/g" "${HOME}/.bashrc"
+fi
