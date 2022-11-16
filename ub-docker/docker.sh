@@ -13,7 +13,7 @@ if [ ! -f "/etc/ssh/sshd_config.bak" ]; then
 PermitRootLogin yes
 PasswordAuthentication yes" >> /etc/ssh/sshd_config
 
-    service sshd reload
+    service ssh reload
 
     # Ref: https://docs.docker.com/engine/install/ubuntu/
     apt update -y
