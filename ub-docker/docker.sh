@@ -5,7 +5,7 @@ if [ "$(whoami)" != "root" ]; then
     exit
 fi
 
-if [ ! -f /etc/ssh/sshd_config.bak ]
+if [ ! -f /etc/ssh/sshd_config.bak ]; then
     /cp -f /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 
     echo "
