@@ -8,10 +8,8 @@ fi
 if [ ! -f "/etc/ssh/sshd_config.bak" ]; then
     \cp -f /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 
-    echo "
-
-PermitRootLogin yes
-PasswordAuthentication yes" >> /etc/ssh/sshd_config
+    # enable root login
+    sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin prohibit-password/i" /etc/ssh/sshd_config
 
     service ssh reload
 
