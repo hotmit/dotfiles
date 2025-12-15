@@ -16,9 +16,13 @@ alias dcre='docker compose run --no-deps --rm --entrypoint=""'
 alias dcu='docker compose up --menu=false'
 alias dcub='docker compose up --build --menu=false'
 alias dct='docker compose restart'
-alias dctt='docker compose down && docker compose up -d'
 alias dcsp='docker compose stop'
 alias dcst='docker compose start'
+
+dctt() {
+  # $@ expands to all arguments passed to the function
+  docker compose down $@ && docker compose up -d $@
+}
 
 alias df='df -h'
 alias free='free -h'
