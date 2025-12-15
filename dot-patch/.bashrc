@@ -16,7 +16,7 @@ alias dcre='docker compose run --no-deps --rm --entrypoint=""'
 alias dcu='docker compose up --menu=false'
 alias dcub='docker compose up --build --menu=false'
 alias dct='docker compose restart'
-alias dct='docker compose down && docker compose up -d'
+alias dctt='docker compose down && docker compose up -d'
 alias dcsp='docker compose stop'
 alias dcst='docker compose start'
 
